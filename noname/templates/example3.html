@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+<h2>Gender: Male</h2>
+
+<table>
+    <tr>
+        <th>Hiring Manager</th>
+        <th>18-24</th>
+        <th>25-35</th>
+        <th>45-60</th>
+    </tr>
+    {% for id, data in hiring_managers_data.items() %}
+    <tr>
+        <td>
+            {{ id }}
+        </td>
+        <td>
+            {{ (data['18-24']['gender_m_true'] / ( data['18-24']['gender_m_true'] + data['18-24']['gender_m_false']) * 100) | round }}%
+        </td>
+        <td>
+            {{ (data['25-35']['gender_m_true'] / ( data['25-35']['gender_m_true'] + data['25-35']['gender_m_false']) * 100) | round }}%
+        </td>
+        <td>
+            {{ (data['45-60']['gender_m_true'] / ( data['45-60']['gender_m_true'] + data['45-60']['gender_m_false']) * 100) | round }}%
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Gender: Female</h2>
+
+<table>
+    <tr>
+        <th>Hiring Manager</th>
+        <th>18-24</th>
+        <th>25-35</th>
+        <th>45-60</th>
+    </tr>
+    {% for id, data in hiring_managers_data.items() %}
+    <tr>
+        <td>
+            {{ id }}
+        </td>
+        <td>
+            {{ (data['18-24']['gender_f_true'] / ( data['18-24']['gender_f_true'] + data['18-24']['gender_f_false']) * 100) | round }}%
+        </td>
+        <td>
+            {{ (data['25-35']['gender_f_true'] / ( data['25-35']['gender_f_true'] + data['25-35']['gender_f_false']) * 100) | round }}%
+        </td>
+        <td>
+            {{ (data['45-60']['gender_f_true'] / ( data['45-60']['gender_f_true'] + data['45-60']['gender_f_false']) * 100) | round }}%
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

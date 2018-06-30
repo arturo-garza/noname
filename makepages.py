@@ -113,3 +113,45 @@ with open(os.path.join(output_dir, "example1.html"), "w") as file:
 
 with open(os.path.join(output_dir, "example2.html"), "w") as file:
     file.write(env.get_template('example2.html').render(hiring_managers_data=hiring_managers_data))
+
+
+### Example 3
+
+hiring_managers_data3 = {}
+
+for i in range(1,6):
+    hiring_managers_data3[str(i)] = {}
+    for j in ["18-24", "25-35", "45-60"]:
+        hiring_managers_data3[str(i)][j] = {
+        'gender_m_true': 0,
+        'gender_m_false': 0,
+        'gender_f_true': 0,
+        'gender_f_false': 0,
+    }
+
+
+with open('example3.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    next(reader, None)
+    for row in reader:
+        age = 2018 - int(row[1])
+        if age < 25:
+            age_range = "18-24"
+        elif age < 45:
+            age_range = "25-35"
+        else:
+            age_range = "45-60"
+        if row[0] == "M":
+            if row[3] == 'True':
+                hiring_managers_data3[row[2]][age_range]['gender_m_true'] += 1
+            else:
+                hiring_managers_data3[row[2]][age_range]['gender_m_false'] += 1
+        else:
+            if row[3] == 'True':
+                hiring_managers_data3[row[2]][age_range]['gender_f_true'] += 1
+            else:
+                hiring_managers_data3[row[2]][age_range]['gender_f_false'] += 1
+
+with open(os.path.join(output_dir, "example3.html"), "w") as file:
+    file.write(env.get_template('example3.html').render(hiring_managers_data=hiring_managers_data3))
+
