@@ -11,8 +11,9 @@ html, body {
 #header {
     margin:0;
     padding: 10px 5px;
-    background: lightblue;
-    border-bottom: 1px solid black;
+    background: #c4f6ff;
+    background: linear-gradient(90deg, #8fb5bc, #c4f6ff);
+    border-bottom: 1px solid #8fb5bc;
 }
 
 #header h1 {
@@ -20,6 +21,12 @@ html, body {
     padding: 5px 0;
     margin: 0;
 }
+
+#header h1 img {
+    max-height: 50px;
+    max-width: 100px;
+}
+
 
 #header #menu {
     list-style-type: none;
