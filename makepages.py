@@ -67,3 +67,9 @@ with open('example1.csv', 'r') as csvfile:
 with open(os.path.join(output_dir, "example1.html"), "w") as file:
     file.write(env.get_template('example1.html').render(hiring_managers_data=hiring_managers_data))
 
+
+
+### Example 2
+
+with open(os.path.join(output_dir, "example2.html"), "w") as file:
+    file.write(env.get_template('example2.html').render(hiring_managers_data=hiring_managers_data))

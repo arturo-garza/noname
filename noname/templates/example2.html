@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+
+    <h3>Hiring Manager 5</h3>
+
+
+
+    <ul class="event-log">
+        <li class="event">
+
+            <h4>Situation noted</h4>
+            <div>
+                Only {{ (hiring_managers_data["5"]['gender_f_true'] / ( hiring_managers_data["5"]['gender_f_true'] + hiring_managers_data["5"]['gender_f_false']) * 100) | round }}% for Gender: Female noticed
+            </div>
+
+            <div class="date">20th June 2017</div>
+        </li>
+        <li class="event">
+
+            <h4>Report from Bill:</h4>
+
+            <div>Comment:</div>
+            <div class="comment">
+                Investigated, large group of unqualified applicants from local girls school distorted figures.
+            </div>
+
+            <div>
+                Conclusion: situation marked ok.
+            </div>
+
+            <div class="date">12th July 2017</div>
+        </li>
+        <li class="links">
+            <input type="button" value="Add Report">
+        </li>
+
+
+    </ul>
+
+
+{% endblock %}

@@ -14,3 +14,32 @@ html, body {
 #content {
     padding: 10px;
 }
+
+
+.event-log li {
+    list-style-type: none;
+}
+
+.event-log li.event {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.event-log li.links {
+    margin: 20px 0;
+}
+
+
+.event-log li .date {
+    font-style: italic;
+    text-align: right;
+}
+
+
+.event-log li .comment {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
