@@ -5,15 +5,20 @@
 </head>
 <body>
     <div id="header">
-        <h1>prolight</h1>
-        <h2>Siren's Call Coffee</h2>
-        <ul id="menu">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="reports.html">Reports</a></li>
-            <li><a href="staff.html">Staff</a></li>
-        </ul>
+        <div class="column">
+            <h1>prolight</h1>
+            <h2>Siren's Call Coffee</h2>
+            <ul id="menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="column">
+
+        <div id="content">{% block content %}{% endblock %}</div>
     </div>
 
-    <div id="content">{% block content %}{% endblock %}</div>
 </body>
 </html>

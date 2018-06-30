@@ -3,6 +3,11 @@ html, body {
     margin: 0px;
 }
 
+.column {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 #header {
     margin:0;
     padding: 10px 5px;
