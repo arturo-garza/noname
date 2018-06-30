@@ -5,14 +5,58 @@ html, body {
 
 #header {
     margin:0;
+    padding: 10px 5px;
     background: lightblue;
     border-bottom: 1px solid black;
 }
 
+#header h1 {
+    font-family: arial, sans-serif;
+    padding: 5px 0;
+    margin: 0;
+}
 
+#header h2 {
+    font-family: arial, sans-serif;
+    padding: 5px 0;
+    margin: 0;
+}
+
+#header #menu {
+    list-style-type: none;
+    display: inline;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+#header #menu li {
+    list-style-type: none;
+    display: inline;
+    padding: 5px 20px 5px 0px;
+}
+
+#header #menu li a {
+    font-family: arial, sans-serif;
+    font-size: 110%;
+    text-decoration: none;
+    color: black;
+}
+
+#header #menu li a:hover, #header #menu li a:focus  {
+    text-decoration: underline;
+}
 
 #content {
     padding: 10px;
+}
+
+
+h3 {
+    font-family: arial, sans-serif;
+}
+
+h4 {
+    font-family: arial, sans-serif;
 }
 
 
