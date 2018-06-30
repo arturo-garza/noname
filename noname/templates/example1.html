@@ -4,7 +4,27 @@
 
 {% block content %}
 
-    oeuoeoeuou
-    euiueuiu
+
+<table>
+    <tr>
+        <th>Hiring Manager</th>
+        <th>Gender: Male</th>
+        <th>Gender: Female</th>
+    </tr>
+    {% for id, data in hiring_managers_data.items() %}
+    <tr>
+        <td>
+            {{ id }}
+        </td>
+        <td>
+            {{ (data['gender_m_true'] / ( data['gender_m_true'] + data['gender_m_false']) * 100) | round }}%
+        </td>
+        <td>
+            {{ (data['gender_f_true'] / ( data['gender_f_true'] + data['gender_f_false']) * 100) | round }}%
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 {% endblock %}
