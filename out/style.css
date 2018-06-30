@@ -1,0 +1,16 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#header {
+    margin:0;
+    background: lightblue;
+    border-bottom: 1px solid black;
+}
+
+
+
+#content {
+    padding: 10px;
+}
