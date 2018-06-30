@@ -81,7 +81,7 @@ def create_graph(data):
         labels.append(manager)
     plt.pyplot.xticks(y_pos, labels)
     plt.pyplot.ylabel('Hiring Success')
-    plt.pyplot.title('Coffee Shops in Belfast')
+    plt.pyplot.title('Coffee Shops')
     plt.pyplot.savefig('out/Report.png', dpi=100)
 
 
