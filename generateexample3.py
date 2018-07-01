@@ -24,7 +24,7 @@ class BadHiringManager(models.HiringManager):
 
 applicants = []
 
-for i in range(1,1000):
+for i in range(1,10000):
     applicants.append(models.Applicant())
 
 
