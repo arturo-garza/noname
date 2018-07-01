@@ -89,9 +89,8 @@ def create_graph(data):
 def create_graph2(data):
     managers = list(data.keys())
     managers_data = list(data.values())
-    print(len(managers_data))
     data_out = []
-    age_range = ['45-60', '25-35', '18-24']
+    age_range = ['18-24', '25-35', '45-60']
     male_female= ['male','female']
     i=1
     for entry in managers_data:
@@ -115,7 +114,9 @@ def create_graph2(data):
         df=pd.DataFrame(data=data_dict, index=male_female,columns=age_range)
         fig0, ax0 = plt.pyplot.subplots()
         ax1 = ax0.twinx()
-        df.plot(kind='bar', ax=ax0)
+        ax1.set_yticklabels([])
+        df.plot(kind='bar', ax=ax1)
+        plt.pyplot.ylabel('Hiring Success')
         plt.pyplot.ylabel('Hiring Success')
         title="Manager "+str(i)
         plt.pyplot.title(title)
