@@ -87,13 +87,10 @@ def create_graph(data):
 
 
 def create_graph2(data):
-    managers = list(data.keys())
-    managers_data = list(data.values())
     data_out = []
     age_range = ['18-24', '25-35', '45-60']
     male_female= ['male','female']
-    i=1
-    for entry in managers_data:
+    for id, entry in data.items():
         data1 = entry['18-24']
         data2 = entry['25-35']
         data3 = entry['45-60']
@@ -118,10 +115,9 @@ def create_graph2(data):
         df.plot(kind='bar', ax=ax1)
         plt.pyplot.ylabel('Hiring Success')
         plt.pyplot.ylabel('Hiring Success')
-        title="Manager "+str(i)
+        title="Manager "+id
         plt.pyplot.title(title)
-        i+=1
-        plt.pyplot.savefig("out/Report"+str(i)+".png", dpi=100)
+        plt.pyplot.savefig("out/Report-ex3-"+id+".png", dpi=100)
 
 
 with open('example1.csv', 'r') as csvfile:
