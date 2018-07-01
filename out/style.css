@@ -41,6 +41,11 @@ html, body {
     padding: 5px 20px 5px 0px;
 }
 
+#header #menu li.user {
+    font-family: arial, sans-serif;
+    float: right;
+}
+
 #header #menu li a {
     font-family: arial, sans-serif;
     font-size: 110%;
