@@ -4,6 +4,7 @@ import os
 import csv
 import matplotlib as plt
 import numpy as np
+import pandas as pd
 
 env = Environment(
     loader=PackageLoader('noname', 'templates')
@@ -85,6 +86,62 @@ def create_graph(data):
     plt.pyplot.savefig('out/Report.png', dpi=100)
 
 
+def create_graph2(data):
+    managers = list(data.keys())
+    managers_data = list(data.values())
+    print(len(managers_data))
+    data_out = []
+    age_range = ['18-24', '25-35', '45-60']
+    male_female= ['male','female']
+    i=1
+    for entry in managers_data:
+        data1 = entry['18-24']
+        data2 = entry['25-35']
+        data3 = entry['45-60']
+        
+        hired_male=(data1['gender_m_true'] / (data1['gender_m_true'] + data1['gender_m_false']) * 100)
+        hired_female=(data1['gender_f_true'] / (data1['gender_f_true'] + data1['gender_f_false']) * 100)
+        
+        hired_male2=(data3['gender_m_true'] / (data3['gender_m_true'] + data3['gender_m_false']) * 100)
+        hired_female2=(data3['gender_f_true'] / (data3['gender_f_true'] + data3['gender_f_false']) * 100)
+        
+        hired_male3=(data2['gender_m_true'] / (data2['gender_m_true'] + data2['gender_m_false']) * 100)
+        hired_female3=(data2['gender_f_true'] / (data2['gender_f_true'] + data2['gender_f_false']) * 100)
+        
+        data_out = [[hired_male, hired_female], [hired_male2, hired_female2], [hired_male3, hired_female3]]
+        #print(hired_male, hired_female, hired_male2, hired_female2, hired_male3, hired_female3)
+    
+        data_dict = dict(zip(age_range, data_out))
+        #print(data_dict)
+
+        df=pd.DataFrame(data=data_dict, index=male_female,columns=age_range)
+        fig0, ax0 = plt.pyplot.subplots()
+        ax1 = ax0.twinx()
+        df.plot(kind='bar', ax=ax0)
+        plt.pyplot.ylabel('Hiring Success')
+        title="Manager "+str(i)
+        plt.pyplot.title(title)
+        i+=1
+        plt.pyplot.savefig("out/Report"+str(i)+".png", dpi=100)
+
+#fig0.show()
+#plt.pyplot.show()
+
+    #fig, axes = plt.pyplot.subplots(nrows=3, ncols=1)
+    #print(enumerate(df.columns))
+        #for i, c in enumerate(df.columns):
+        #df[c].plot(kind='bar', ax=axes[i], figsize=(12, 10), title=c)
+
+    #df.sort('Success')
+        #hired_male=(statistic['gender_m_true'] / (statistic['gender_m_true'] + statistic['gender_m_false']) * 100)
+        #hired_female=(statistic['gender_f_true'] / (statistic['gender_f_true'] + statistic['gender_f_false']) * 100)
+        #final_numbers+=[hired_male,hired_female]
+        #final_topics+=[hired_male,hired_female]
+    
+    #print(final_numbers)
+    #print(final_topics)
+    #plt.pyplot.show()
+
 
 
 with open('example1.csv', 'r') as csvfile:
@@ -151,6 +208,8 @@ with open('example3.csv', 'r') as csvfile:
                 hiring_managers_data3[row[2]][age_range]['gender_f_true'] += 1
             else:
                 hiring_managers_data3[row[2]][age_range]['gender_f_false'] += 1
+
+create_graph2(hiring_managers_data3)
 
 with open(os.path.join(output_dir, "example3.html"), "w") as file:
     file.write(env.get_template('example3.html').render(hiring_managers_data=hiring_managers_data3))
