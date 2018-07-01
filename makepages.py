@@ -91,7 +91,7 @@ def create_graph2(data):
     managers_data = list(data.values())
     print(len(managers_data))
     data_out = []
-    age_range = ['18-24', '25-35', '45-60']
+    age_range = ['45-60', '25-35', '18-24']
     male_female= ['male','female']
     i=1
     for entry in managers_data:
