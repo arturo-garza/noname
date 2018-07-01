@@ -109,10 +109,8 @@ def create_graph2(data):
         hired_female3=(data2['gender_f_true'] / (data2['gender_f_true'] + data2['gender_f_false']) * 100)
         
         data_out = [[hired_male, hired_female], [hired_male2, hired_female2], [hired_male3, hired_female3]]
-        #print(hired_male, hired_female, hired_male2, hired_female2, hired_male3, hired_female3)
     
         data_dict = dict(zip(age_range, data_out))
-        #print(data_dict)
 
         df=pd.DataFrame(data=data_dict, index=male_female,columns=age_range)
         fig0, ax0 = plt.pyplot.subplots()
@@ -123,25 +121,6 @@ def create_graph2(data):
         plt.pyplot.title(title)
         i+=1
         plt.pyplot.savefig("out/Report"+str(i)+".png", dpi=100)
-
-#fig0.show()
-#plt.pyplot.show()
-
-    #fig, axes = plt.pyplot.subplots(nrows=3, ncols=1)
-    #print(enumerate(df.columns))
-        #for i, c in enumerate(df.columns):
-        #df[c].plot(kind='bar', ax=axes[i], figsize=(12, 10), title=c)
-
-    #df.sort('Success')
-        #hired_male=(statistic['gender_m_true'] / (statistic['gender_m_true'] + statistic['gender_m_false']) * 100)
-        #hired_female=(statistic['gender_f_true'] / (statistic['gender_f_true'] + statistic['gender_f_false']) * 100)
-        #final_numbers+=[hired_male,hired_female]
-        #final_topics+=[hired_male,hired_female]
-    
-    #print(final_numbers)
-    #print(final_topics)
-    #plt.pyplot.show()
-
 
 
 with open('example1.csv', 'r') as csvfile:
